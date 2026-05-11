@@ -1,0 +1,129 @@
+/* Importando uma fonte moderna e limpa */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container Principal */
+.cont {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Título */
+.title h1 {
+    font-size: 1.4rem;
+    color: #1e293b;
+    text-align: center;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+/* Grupos de Opções */
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.campo, .colocacao {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Textos de rótulo */
+p, label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+/* Estilização de Inputs e Select */
+input[type="number"], 
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #334155;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="number"]:focus, 
+select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Botão Calcular */
+.botao {
+    margin-top: 25px;
+}
+
+#botao {
+    width: 100%;
+    padding: 14px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s active;
+}
+
+#botao:hover {
+    background-color: #2563eb;
+}
+
+#botao:active {
+    transform: scale(0.98);
+}
+
+/* Área de Resultado */
+.resultado {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px dashed #f1f5f9;
+    text-align: center;
+}
+
+.resultado-title h2 {
+    font-size: 1.5rem;
+    color: #334155;
+    font-weight: 700;
+}
+
+/* Estilo para o campo de Retrabalho (Destaque negativo) */
+#retrabalho {
+    border-left: 4px solid #ef4444;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 480px) {
+    .cont {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Nexcoins</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="cont">
+        <div class="title">
+            <h1>CONTADOR DE NEXCOINS</h1>
+        </div>
+
+        <div class="opcoes">
+            <!-- Ativações -->
+            <div class="campo">
+                <p>Ativações</p>
+                <input type="number" placeholder="Quantidade de ativações" id="ativacoes" min="0">
+            </div>
+
+            <!-- Manutenções -->
+            <div class="campo">
+                <p>Manutenções</p>
+                <input type="number" placeholder="Quantidade de manutenções" id="manutencao" min="0">
+            </div>
+
+            <!-- Serviços -->
+            <div class="campo">
+                <p>Serviços</p>
+                <input type="number" placeholder="Quantidade de serviços" id="servicos" min="0">
+            </div>
+
+            <!-- TMR -->
+            <div class="campo">
+                <p>TMR (em segundos)</p>
+                <input type="number" placeholder="Ex: 25" id="tmr" min="0">
+            </div>
+
+            <!-- Retrabalho -->
+            <div class="campo">
+                <p>Retrabalhos (Penalidade)</p>
+                <input type="number" placeholder="Quantidade de erros" id="retrabalho" min="0">
+            </div>
+
+            <!-- Ranking -->
+            <div class="colocacao">
+                <label for="colocacao">Sua colocação no ranking:</label>
+                <select name="colocacao" id="colocacao">
+                    <option value="1">1° Lugar (+10%)</option>
+                    <option value="2">2° Lugar (+5%)</option>
+                    <option value="3" selected>3° Lugar ou mais</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="botao">
+            <input type="button" value="Calcular Nexcoins" id="botao">
+        </div>
+
+        <div class="resultado">
+            <div class="resultado-title">
+                <h2 id="display-resultado">Aguardando cálculo...</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link para o arquivo JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
