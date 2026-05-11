@@ -1,3 +1,17 @@
+const themeButton = document.getElementById('theme-button');
+const body = document.documentElement; // Seleciona o <html>
+
+themeButton.addEventListener('click', () => {
+    // Verifica se o tema atual é dark
+    if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        themeButton.textContent = '🌙 Modo Escuro';
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        themeButton.textContent = '☀️ Modo Claro';
+    }
+});
+
 document.getElementById('botao').addEventListener('click', function() {
     // 1. Captura os valores
     const ativacoes = parseInt(document.getElementById('ativacoes').value) || 0;
