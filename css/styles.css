@@ -1,5 +1,31 @@
-/* Importando uma fonte moderna e limpa */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+/* Importação de Fonte Moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Variáveis de Cores (Tema Claro por padrão) */
+:root {
+    --bg-body: #f4f7f9;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-label: #64748b;
+    --input-border: #e2e8f0;
+    --input-bg: #ffffff;
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --success-color: #2e7d32;
+    --danger-color: #ef4444;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Variáveis para o Tema Escuro */
+[data-theme="dark"] {
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-label: #94a3b8;
+    --input-border: #334155;
+    --input-bg: #1e293b;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
 
 * {
     margin: 0;
@@ -9,71 +35,103 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f4f7f9;
+    background-color: var(--bg-body);
+    color: var(--text-main);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    transition: background 0.3s ease;
 }
 
-/* Container Principal */
+/* Container do Formulário */
 .cont {
-    background-color: #ffffff;
+    background-color: var(--bg-card);
     width: 100%;
     max-width: 450px;
     padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Botão de Troca de Tema */
+.theme-switch {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+#theme-button {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-main);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#theme-button:hover {
+    border-color: var(--primary-color);
 }
 
 /* Título */
 .title h1 {
     font-size: 1.4rem;
-    color: #1e293b;
     text-align: center;
     margin-bottom: 25px;
-    letter-spacing: -0.5px;
+    font-weight: 700;
+    color: var(--primary-color);
 }
 
-/* Grupos de Opções */
+/* Estrutura das Opções */
 .opcoes {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
 }
 
-.campo, .colocacao {
+.ativacao, .manutencao, .tmr, .colocacao, .campo {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-/* Textos de rótulo */
 p, label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-label);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Estilização de Inputs e Select */
+/* Inputs e Selects */
 input[type="number"], 
+input[type="text"],
 select {
     width: 100%;
-    padding: 12px;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 8px;
+    padding: 12px 15px;
+    border: 2px solid var(--input-border);
+    border-radius: 10px;
+    background-color: var(--input-bg);
+    color: var(--text-main);
     font-size: 1rem;
-    color: #334155;
-    transition: all 0.3s ease;
     outline: none;
+    transition: all 0.2s ease;
 }
 
-input[type="number"]:focus, 
-select:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+input:focus, select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Destaque para o campo de Retrabalho */
+#retrabalho {
+    border-left: 5px solid var(--danger-color);
 }
 
 /* Botão Calcular */
@@ -83,45 +141,48 @@ select:focus {
 
 #botao {
     width: 100%;
-    padding: 14px;
-    background-color: #3b82f6;
+    padding: 15px;
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.1s active;
+    transition: all 0.2s ease;
 }
 
 #botao:hover {
-    background-color: #2563eb;
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
 }
 
 #botao:active {
-    transform: scale(0.98);
+    transform: translateY(0);
 }
 
 /* Área de Resultado */
 .resultado {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 2px dashed #f1f5f9;
+    margin-top: 30px;
     text-align: center;
+    padding-top: 20px;
+    border-top: 2px dashed var(--input-border);
+    animation: fadeIn 0.5s ease;;
 }
 
 .resultado-title h2 {
-    font-size: 1.5rem;
-    color: #334155;
-    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-/* Estilo para o campo de Retrabalho (Destaque negativo) */
-#retrabalho {
-    border-left: 4px solid #ef4444;
+/* Animação simples de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Ajustes Responsivos */
+/* Responsividade */
 @media (max-width: 480px) {
     .cont {
         padding: 20px;
